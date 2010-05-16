@@ -33,10 +33,14 @@ jQuery.fn.xreload = function () {
 		while (cur != null) {
 			if ($(cur).hasClass('xframe')) {
 				var src = $(cur).attr('src');
-				var attrs = $(cur).attr('attrs') || {};
 				
-				$.get(src, attrs, function(data) {
-					$(cur).replaceWith($(data));
+				$.ajax({
+					url: src,
+					cache: false,
+					dataType: "html",
+					success: function(data) {
+						$(cur).replaceWith(data);
+					}
 				});
 				
 				break;
