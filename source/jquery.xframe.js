@@ -23,46 +23,37 @@
 	THE SOFTWARE.
 */
 
-jQuery.fn.xframe = function (src) {
-	$(this).addClass('xframe');
-	
-	if (src)
-		$(this).attr('src', src);
-	
-	$(this).xreload();
+jQuery.xframe = function () {
+	jQuery('.xframe').xreload();
 };
 
 jQuery.fn.xreload = function () {
-	$(this).each(function() {
-		var cur = this;
-		
-		while (cur != null) {
-			if ($(cur).hasClass('xframe')) {
-				var src = $(cur).attr('src');
-				
-				$.ajax({
-					url: src,
-					cache: false,
-					dataType: "html",
-					success: function(data) {
-						$(cur).replaceWith(data);
-					}
-				});
-				
-				break;
-			}
+	if (this.length == 0) return;
+	
+	var element = this, src = this.data('xframe-source');
+	
+	jQuery.ajax({
+		url: src,
+		cache: false,
+		dataType: "html",
+		success: function(data) {
+			var fragment = jQuery(data);
 			
-			cur = cur.parentElement;
+			element.replaceWith(fragment);
+			
+			var interval = parseInt(fragment.data('xframe-interval'));
+			
+			console.log("Waiting for", interval * 1000, fragment);
+			
+			if (interval) {
+				setTimeout(function() {
+					fragment.xreload();
+				}, interval * 1000);
+			}
 		}
 	});
-};
-
-jQuery.xframe = function (options) {
-	jQuery('.xframe').xframe();
-};
-
-function xReload (e) {
-	return function () {
-		$(e).xreload();
-	}
 }
+
+jQuery.fn.xframe = function () {
+	$(this).closest('.xframe').xreload();
+};

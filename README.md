@@ -1,5 +1,4 @@
-jQuery.XFrame
-=============
+# jQuery.XFrame
 
 jQuery.XFrame is a client-side include system built on top of AJAX. It is designed to simplify the development of cache friendly dynamic websites by simplifying the complexity of combining static content with dynamic content (or more generally, content with different caching strategies).
 
@@ -7,20 +6,13 @@ XFrame stands for eXternal Frame. It works a bit like an `<iframe>` tag, but its
 	
 jQuery.XFrame depends on jQuery 1.4.1+.
 
-For downloads, documentation, compatibility, please visit the [project page][1].
-
-[1]: http://www.oriontransfer.co.nz/javascript/jquery-xframe/
-
-
-Installation
-------------
+## Installation
 
 The default minified distribution of jQuery.XFrame is available in public/.
 
 To build a custom distribution, please copy install.yaml to site.yaml and update the appropriate configuration options. The use `rake install` to install jQuery.XFrame.
 
-Motivation
-----------
+## Motivation
 
 Building websites that are cache-friendly is difficult. Building websites that are both cache-friendly and dynamic is even more complex.
 
@@ -39,10 +31,9 @@ In this case, we can use jQuery.XFrame to update comments dynamically. The first
 
 The page should be rendered as per normal. Once the page is rendered, it can be cached for a long time, say 8 hours. When the page is served to the client, comments may be up to 8 hours old, so, new comments are missing. But, XFrame is triggered once the page has finished loading. This will request the partial from the web server. This content may have a cache time of 10 minutes, so comments are at most 10 minutes late, or even generated in real time. The content on the 8 hour old cache is updated with the new comments.
 
-License
--------
+## License
 
-Copyright (c) 2011 Samuel G. D. Williams. <http://www.oriontransfer.co.nz>
+Copyright, 2011, 2015, by Samuel G. D. Williams. <http://www.codeotaku.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -61,9 +52,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-## Change Log ##
-
-### release-1.1 ###
- - Improved documentation.
- - Improved install system (taken from jQuery.Syntax)
