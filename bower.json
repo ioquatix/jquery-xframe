@@ -1,0 +1,20 @@
+{
+  "name": "jquery-xframe",
+  "version": "1.0.0",
+  "authors": [
+    "Samuel Williams <samuel.williams@oriontransfer.co.nz>"
+  ],
+  "description": "Easily reload specific client side elements.",
+  "main": "source/jquery.xframe.js",
+  "keywords": [
+    "jquery",
+    "dynamic",
+    "client",
+    "reload"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.4.1"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ioquatix/jquery-xframe"
+}
