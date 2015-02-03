@@ -5,7 +5,8 @@
     "Samuel Williams <samuel.williams@oriontransfer.co.nz>"
   ],
   "description": "Easily reload specific client side elements.",
-  "main": "source/jquery.xframe.js",
+  "main": "public/jquery.xframe.js",
+  "ignore": ["install.yaml", "Rakefile", "README.md", "ext/*", "example/*"],
   "keywords": [
     "jquery",
     "dynamic",
