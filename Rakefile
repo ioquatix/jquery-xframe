@@ -9,7 +9,8 @@ require 'tmpdir'
 require 'pathname'
 require 'yaml'
 
-JSMIN_EXEC = ["java", "-jar", File.dirname(__FILE__) + "/ext/closure/compiler.jar"]
+require 'closure-compiler'
+
 LICENSE = <<EOF
 // This file is part of the "jQuery.XFrame" project, and is distributed under the MIT License.
 EOF
@@ -24,18 +25,14 @@ end
 # Note... this is one way !
 task :compress_all => :setup_prefix do
 	files = Dir["*.js"]
+	compiler = Closure::Compiler.new
 	
 	puts "Minifying JavaScript..."
 	files.each do |path|
-		IO.popen(JSMIN_EXEC, "r+") do |min|
-			min.write(File.read(path))
-			
-			min.close_write
-			
-			File.open(path, "w") do |fp|
-				fp.write(LICENSE)
-				fp.write(min.read)
-			end
+		output = compiler.compile(File.open(path, 'r'))
+		File.open(path, 'w') do |file|
+			file.write(LICENSE)
+			file.write(output)
 		end
 	end
 end
