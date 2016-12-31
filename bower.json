@@ -11,7 +11,7 @@
   "license": "MIT",
   "keywords": [
     "jquery",
-    "iframe",
+    "iframe"
   ],
   "homepage": "https://github.com/ioquatix/jquery-xframe",
   "ignore": [
