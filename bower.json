@@ -1,21 +1,21 @@
 {
   "name": "jquery-xframe",
-  "version": "1.0.0",
+  "dependencies": {
+    "jquery": ">=1.4.1"
+  },
+  "description": "jQuery.XFrame is a tiny reloadable <iframe> replacement.",
+  "main": "dist/jquery.xframe.js",
   "authors": [
-    "Samuel Williams <samuel.williams@oriontransfer.co.nz>"
+    "Samuel Williams <samuel@codeotaku.com> (http://www.codeotaku.com)"
   ],
-  "description": "Easily reload specific client side elements.",
-  "main": "public/jquery.xframe.js",
-  "ignore": ["install.yaml", "Rakefile", "README.md", "ext/*", "example/*"],
+  "license": "MIT",
   "keywords": [
     "jquery",
-    "dynamic",
-    "client",
-    "reload"
+    "iframe",
   ],
-  "dependencies": {
-    "jquery": ">= 1.4.1"
-  },
-  "license": "MIT",
-  "homepage": "https://github.com/ioquatix/jquery-xframe"
+  "homepage": "https://github.com/ioquatix/jquery-xframe",
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ]
 }

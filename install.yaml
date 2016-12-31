@@ -1,4 +1,4 @@
 # The path to install the code
-prefix: "public"
+prefix: "dist"
 # Enable minification
 minify: true
