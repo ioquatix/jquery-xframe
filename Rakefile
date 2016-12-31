@@ -91,4 +91,4 @@ task :clean => :setup_prefix do |task, arguments|
 	end
 end
 
-task :default => :build_combined
+task :default => :install
