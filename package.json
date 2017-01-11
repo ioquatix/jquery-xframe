@@ -1,6 +1,6 @@
 {
   "name": "jquery-xframe",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "jQuery.XFrame",
   "author": {
     "name": "Samuel Williams",
@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": ">=1.4.1"
   },
-  "description": "jQuery.Syntax is an extremely fast and lightweight syntax highlighter written in JavaScript. It has dynamic loading of syntax source files and integrates cleanly using CSS or modelines.",
+  "description": "jQuery.XFrame is a client-side include system built on top of AJAX. It is designed to simplify the development of cache friendly dynamic websites by simplifying the complexity of combining static content with dynamic content (or more generally, content with different caching strategies).",
   "keywords": [
 		"jquery",
     "iframe",
