@@ -20,11 +20,11 @@
 	THE SOFTWARE.
 */
 
-jQuery.xframe = function () {
-	jQuery('.xframe').xreload();
+jQuery.xframe = function(callback) {
+	jQuery('.xframe').xreload(callback);
 };
 
-jQuery.fn.xreload = function () {
+jQuery.fn.xreload = function(callback) {
 	if (this.length == 0) return;
 	
 	var element = this, src = this.data('xframe-source');
@@ -36,21 +36,26 @@ jQuery.fn.xreload = function () {
 		success: function(data) {
 			var fragment = jQuery(data);
 			
-			element.replaceWith(fragment);
-			
-			var interval = parseInt(fragment.data('xframe-interval'));
-			
-			console.log("Waiting for", interval * 1000, fragment);
-			
-			if (interval) {
-				setTimeout(function() {
-					fragment.xreload();
-				}, interval * 1000);
-			}
+			element.replaceWith(fragment).promise().done(function() {
+				// First we invoke any onload methods:
+				fragment.trigger('load');
+				
+				// Then we invoke the callback if one was given:
+				if (callback) callback(fragment);
+				
+				// Finally if an interval was given, we setup the next reload call:
+				var interval = parseInt(fragment.data('xframe-interval'));
+				
+				if (interval) {
+					setTimeout(function() {
+						fragment.xreload(callback);
+					}, interval * 1000);
+				}
+			});
 		}
 	});
 }
 
-jQuery.fn.xframe = function () {
-	$(this).closest('.xframe').xreload();
+jQuery.fn.xframe = function(callback) {
+	$(this).closest('.xframe').xreload(callback);
 };
