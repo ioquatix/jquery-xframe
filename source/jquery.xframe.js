@@ -1,8 +1,5 @@
 /* 
-	This file is part of the "jQuery.XFrame" project, and is distributed under the MIT License.
-	For more information, please see http://www.oriontransfer.co.nz/projects/jquery-xframe
-	
-	Copyright (c) 2011 Samuel G. D. Williams. <http://www.oriontransfer.co.nz>
+	Copyright, 2011, 2015, by Samuel G. D. Williams. <http://www.codeotaku.com>
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
